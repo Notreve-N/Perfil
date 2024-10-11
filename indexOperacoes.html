@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.5/brython.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleOper.css">
+    <title>Operações Matemáticas</title>
+</head>
+
+<body onload="brython()">
+    <div class="container">
+        <header class="cabecalho">
+            <nav class="cabecalho__menu">
+                <a class="cabecalho__menu__link" href="index.html">Home</a>
+                <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
+                <a class="cabecalho__menu__link" href="summary.html">Resumo</a>
+                <a class="cabecalho__menu__link" href="indexProjetos.html">Projetos</a>
+            </nav>
+        </header>
+        <main class="container__conteudo">
+            <div class="container__informacoes">
+                <div class="container__texto">
+                    <h1>Operações Matemáticas</h1>
+                    <form id="formulario" class="formulario">
+                        <label class="subtitulo" for="numero1">Digite o primeiro número:</label>
+                        <input class="numbers" type="number" id="numero1" required aria-label="Primeiro número">
+                        <label class="subtitulo" for="numero2">Digite o segundo número:</label>
+                        <input class="numbers" type="number" id="numero2" required aria-label="Segundo número">
+                        <button class="calcule" type="submit">Calcular</button>
+                    </form>
+                    <div class="result" id="resultados"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="rodape">
+        <p class="textomenor">Desenvolvido por E.N.</p>
+        <p class="textomenor">Todos os direitos reservados © 2024</p>
+    </footer>
+    
+    <script type="text/python">
+        from browser import document, alert
+
+        def calcular(event):
+            event.preventDefault()  # Impede o envio do formulário
+            numero1 = float(document["numero1"].value)
+            numero2 = float(document["numero2"].value)
+            resultados = ""
+
+            # Adição
+            soma = numero1 + numero2
+            resultados += f"Soma: {soma:.2f}<br>"
+
+            # Subtração
+            subtracao = numero1 - numero2
+            resultados += f"Subtração: {subtracao:.2f}<br>"
+
+            # Multiplicação
+            multiplicacao = numero1 * numero2
+            resultados += f"Multiplicação: {multiplicacao:.2f}<br>"
+
+            # Divisão
+            if numero2 != 0:
+                divisao = numero1 / numero2
+                resultados += f"Divisão: {divisao:.2f}<br>"
+            else:
+                resultados += "Divisão por zero não é permitida<br>"
+
+            # Potência
+            potencia = numero1 ** numero2
+            if potencia > 1e6:
+                resultados += f"Potência: {potencia:.3e}<br>"  # Usa notação científica para números grandes
+            else:
+                resultados += f"Potência: {potencia:.2f}<br>"
+
+            document["resultados"].html = resultados
+
+        document["formulario"].bind("submit", calcular)
+    </script>
+</body>
+
+</html>

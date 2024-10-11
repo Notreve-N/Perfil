@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.5/brython.min.js"></script>
+    <link rel="stylesheet" href="calculo.css">
+    <title>Projeção de Salário</title>
+    <script>
+        function toggleAdicionalNoturno() {
+            const trabalhaNoite = document.getElementById("trabalha_noite").value;
+            const adicionalNoturnoField = document.getElementById("porcentagem_adicional_noturno");
+
+            if (trabalhaNoite === "sim") {
+                adicionalNoturnoField.style.display = "block";
+            } else {
+                adicionalNoturnoField.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body onload="brython(); toggleAdicionalNoturno();">
+    <header class="cabecalho">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="index.html">Home</a>
+            <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
+            <a class="cabecalho__menu__link" href="summary.html">Resumo</a>
+            <a class="cabecalho__menu__link" href="indexProjetos.html">Projetos</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h1 class="titulo-principal">Calculadora de Salário</h1>
+        <form id="formulario">
+            <div class="form-group">
+                <label for="salario">Salário Mensal Bruto (R$):</label>
+                <input class="salar" type="number" id="salario" required step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="inicio_trabalho">Início do Trabalho:</label>
+                <input type="time" id="inicio_trabalho" required>
+            </div>
+            <div class="form-group">
+                <label for="termino_trabalho">Término do Trabalho:</label>
+                <input type="time" id="termino_trabalho" required>
+            </div>
+            <div class="form-group">
+                <label for="horas_extras">Horas Extras (se houver):</label>
+                <input type="number" id="horas_extras" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="trabalha_noite">Trabalha à Noite?</label>
+                <select id="trabalha_noite" onchange="toggleAdicionalNoturno()">
+                    <option value="nao">Não</option>
+                    <option value="sim">Sim</option>
+                </select>
+            </div>
+            <div class="form-group" id="porcentagem_adicional_noturno" style="display: none;">
+                <label for="adicional_noturno">Porcentagem de Adicional Noturno (%):</label>
+                <input type="number" id="adicional_noturno" step="0.01" value="20">
+            </div>
+            <div class="form-group">
+                <label for="dias_trabalhados">Quantos dias você trabalhou no mês?</label>
+                <input type="number" id="dias_trabalhados" required min="1" max="31" placeholder="Ex: 30">
+            </div>
+                        
+            <div class="form-group form-group--submit">
+                <button class="calc" id="calcular_salario" type="submit">Calcular</button>
+           
+        </form>
+        <div class="result" id="resultados"></div>
+    </main>
+    <footer class="rodape">
+        <p>Desenvolvido por E.N</p>
+        <p class="textomenor">Todos os direitos reservados © 2024</p>
+    </footer>
+    <script type="text/python" src="calculo.py"></script>
+</body>
+
+</html>

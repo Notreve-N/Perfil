@@ -1,0 +1,225 @@
+/* Definições de cores, fontes e tamanhos */
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #f6f6f6;
+    --cor-terciaria: #45C4B0;
+    --cor-hover: #008F8C;
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+
+    --fonte-1-5rem: 1.5rem;
+    --fonte-2rem: 2rem;
+}
+
+/* Reset de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global do corpo */
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center; /* Centraliza verticalmente */
+}
+
+/* Estilização do cabeçalho e menu */
+.cabecalho {
+    width: 100%;
+    background-color: #080808;
+    padding: 20px 0;
+    margin-bottom: 20px; /* Adiciona um espaço abaixo do cabeçalho */
+}
+
+.cabecalho__menu {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-1-5rem);
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+/* Estilização da seção principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    margin-top: -50px; /* Ajuste para mover o container para cima */
+}
+
+/* Título principal */
+.titulo-principal {
+    font-size: var(--fonte-2rem);
+    margin-bottom: 20px;
+    font-family: var(--fonte-primaria);
+    text-align: center;
+    margin-top: 30px; /* Aumenta o espaço acima do título */
+}
+
+/* Estilização do formulário */
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.salar {
+    width: 100%;
+}
+
+label {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 2px solid var(--cor-terciaria);
+    border-radius: 5px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+.form-group--submit {
+    display: flex;
+    justify-content: center;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-secundaria);
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Estilização do rodapé */
+.rodape {
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    padding: 0%;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-1-5rem);
+    font-weight: 400;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cabecalho__menu {
+        flex-direction: column;
+        gap: 100%;
+        text-align: center;
+    }
+
+    .titulo-principal {
+        font-size: 1.5rem;
+    }
+
+    #formulario {
+        max-width: 100%;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+    
+    .rodape {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecalho__menu {
+        flex-direction: column;
+        gap: 100%;
+        text-align: center;
+    }
+
+    .container {
+        width: 115%;
+        display: flex;
+    }
+
+    .titulo-principal {
+        font-size: 1.25rem;
+    }
+
+    label {
+        font-size: 1.1rem;
+    }
+
+    input, select {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .rodape {
+        color: var(--cor-primaria);
+        background-color: var(--cor-terciaria);
+        padding: 1%;
+        text-align: center;
+        font-family: var(--fonte-secundaria);
+        font-size: var(--fonte-1-5rem);
+        font-weight: 10%;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .textomenor {
+        text-align: center;
+        width: 88%;
+        
+    }
+}

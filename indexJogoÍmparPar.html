@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.5/brython.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesImparPar.css">
+    <title>Jogo do Ímpar ou Par</title>
+</head>
+
+<body onload="brython()">
+    <div class="cabecalho">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="index.html">Home</a>
+            <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
+            <a class="cabecalho__menu__link" href="summary.html">Resumo</a>
+            <a class="cabecalho__menu__link" href="indexProjetos.html">Projetos</a>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="container__conteudo">
+            <h1>Jogo do Ímpar ou Par</h1>
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="escolha">Escolha 'par' ou 'ímpar':</label>
+                    <select id="escolha" required class="select">
+                        <option value="par">Par</option>
+                        <option value="ímpar">Ímpar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Digite um número:</label>
+                    <input type="number" id="numero" required class="select">
+                </div>
+                <button class="calcule" id="jogar" type="submit">Jogar</button>
+                <button class="calcule" id="novoJogo" type="button" style="display:none;">Novo Jogo</button>
+            </form>
+            <div id="resultados"></div>
+        </div>
+    </div>
+    <footer class="rodape">
+        <p>Desenvolvido por E.N</p>
+        <p class="textomenor">Todos os direitos reservados © 2024</p>
+    </footer>
+    <script type="text/python" src="Jogo do ímpar ou par.py"></script>
+</body>
+
+</html>
